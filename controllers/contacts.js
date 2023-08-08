@@ -17,7 +17,7 @@ const getContactById= async (req, res) => {
 };
 
 const addContact = async (req, res) => {
-  const result = await contacts.addContact(req.body);
+   const result = await contacts.addContact(req.body);
   res.status(201).json(result);
 };
 
@@ -25,7 +25,7 @@ const removeContact = async (req, res) => {
   const { contactId } = req.params;
   const result = await contacts.removeContact(contactId);
   if (!result) {
-    throw HttpError(400);
+    throw HttpError(404, "Not found");
   }
   res.status(200).json({ message: "contact deleted" });
 };
