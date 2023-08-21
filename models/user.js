@@ -46,13 +46,7 @@ const addLoginSchema = Joi.object({
 });
 
 
-const subscriptionSchema = Joi.object({
-  subscription: Joi.array().items(Joi.string())
-    .required()
-    .messages({ "any.required": "missing required subscription field" }),
-});
 
-
-const schemas = { addLoginSchema, addRegisterSchema, subscriptionSchema };
+const schemas = { addLoginSchema, addRegisterSchema};
 
 module.exports = { User, schemas };
