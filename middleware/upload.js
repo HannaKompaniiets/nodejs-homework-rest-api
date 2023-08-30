@@ -4,14 +4,11 @@ const path = require("path");
 const tempDir = path.join(__dirname, "../", "temp");
 
 const multerConfiq = multer.diskStorage({
-    destination: tempDir,
-    filename: (req, file, cb) => {
-        cb(null, file.originalname)
-    }
+  destination: tempDir,
 });
 
 const upload = multer({
-    storage: multerConfiq
-})
+  storage: multerConfiq,
+});
 
 module.exports = upload;
