@@ -10,6 +10,12 @@ router.post(
   validatedBody(schemas.addRegisterSchema),
   ctrl.register
 );
+router.get("/verify/:verificationToken", ctrl.verifyEmail);
+router.post(
+  "/verify",
+  validatedBody(schemas.addEmailSchema),
+  ctrl.resendVerifyEmail
+);
 router.post("/login", validatedBody(schemas.addLoginSchema), ctrl.login);
 router.get("/current", authenticate, ctrl.getCurrent);
 router.post("/logout", authenticate, ctrl.logout);
